@@ -31,6 +31,7 @@ export async function POST(req: Request) {
         return_url: `${req.headers.get('origin')}/success?session_id={CHECKOUT_SESSION_ID}`,
       })
     return NextResponse.json({ clientSecret: session.client_secret })
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 })
   }

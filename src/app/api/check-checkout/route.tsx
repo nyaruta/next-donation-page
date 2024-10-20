@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 export async function GET(req: Request) {
@@ -15,6 +16,7 @@ export async function GET(req: Request) {
       customer_email: session.customer_details.email,
     }, { status: 200 });
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     // Handle errors and return appropriate response
     return NextResponse.json({ error: err.message }, { status: err.statusCode || 500 });

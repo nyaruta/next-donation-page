@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 export default function SuccessPage() {
   const [loading, setLoading] = useState(true);
   const [paymentStatus, setPaymentStatus] = useState<string | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [sessionId, setSessionId] = useState<string | null>(null);
 
   // Function to get session_id from URL and verify the payment session
