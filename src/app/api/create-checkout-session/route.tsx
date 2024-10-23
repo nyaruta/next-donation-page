@@ -6,14 +6,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 export async function POST(req: Request) {
   const { amount, currency } = await req.json()
   try {
-    let methods: Stripe.Checkout.SessionCreateParams.PaymentMethodType[]
-    if (!['CNY', 'HKD'].includes(currency)) {
-        methods = ['card', 'link'];
-      } else {
-        methods = ['card', 'alipay', 'link'];
-      }
     const session = await stripe.checkout.sessions.create({
-        payment_method_types: methods,
         ui_mode: 'embedded',
         line_items: [
           {
