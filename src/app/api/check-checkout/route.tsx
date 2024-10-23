@@ -19,7 +19,10 @@ export async function GET(req: Request) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     // Handle errors and return appropriate response
-    return NextResponse.json({ error: err.message }, { status: err.statusCode || 500 });
+    return NextResponse.json(
+      { error: err.message }, 
+      { status: err.statusCode || 500 }
+    );
   }
 }
 
